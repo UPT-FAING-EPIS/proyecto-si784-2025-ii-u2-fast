@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "358709916527",
+    "project_id": "upt-tutoria-app",
+    "storage_bucket": "upt-tutoria-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358709916527:android:08968abda1a39131d06e9a",
+        "android_client_info": {
+          "package_name": "com.example.upt_tutoria_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlFhRj2BrAiGtsVuLT1oIk1akJrfwBN6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
