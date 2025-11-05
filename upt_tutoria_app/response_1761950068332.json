@@ -1,0 +1,666 @@
+{
+  "success": true,
+  "url": "https://net.upt.edu.pe/login.php?sesion=YdCd0BW3k3UpCFuJ2zKbCF45KH8LM3M",
+  "tiempo_total": 6.696943521499634,
+  "captcha": "1993",
+  "error": null,
+  "notas": [
+    {
+      "nombre_curso": "INTELIGENCIA ARTIFICIAL",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "35 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "35 %",
+              "nota": "11",
+              "fecha": "Sep 20 2025 07:28:00:000PM",
+              "descripcion": "Examen teórico"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "35 %",
+              "nota": "10",
+              "fecha": "Sep 20 2025 07:28:00:000PM",
+              "descripcion": "Examen de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "20 %",
+              "nota": "10",
+              "fecha": "Sep 20 2025 07:29:00:000PM",
+              "descripcion": "Prácticas de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "10 %",
+              "nota": "16",
+              "fecha": "Sep 20 2025 07:31:00:000PM",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "35 %",
+          "evaluaciones": [],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "30 %",
+          "evaluaciones": [],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "4",
+      "tiene_notas": true
+    },
+    {
+      "nombre_curso": "REDES Y COMUNICACIÓN DE DATOS I",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "34 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "40 %",
+              "nota": "11",
+              "fecha": "Sep 15 2025 02:40:00:000PM",
+              "descripcion": "Examen de unidad"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "Sep 15 2025 02:36:00:000PM",
+              "descripcion": "Practica calificada/laboratorios"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "25 %",
+              "nota": "7",
+              "fecha": "Sep 15 2025 04:08:00:000PM",
+              "descripcion": "Trabajos de investigacion/expos"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "5 %",
+              "nota": "11",
+              "fecha": "Sep 15 2025 04:26:00:000PM",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "34 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "40 %",
+              "nota": "",
+              "fecha": "Oct 28 2025 02:37:00:000PM",
+              "descripcion": "Examen de unidad"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "Oct 28 2025 02:37:00:000PM",
+              "descripcion": "Practica calificada/laboratorios"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "Oct 28 2025 02:37:00:000PM",
+              "descripcion": "Trabajos de investigacion/expos"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "5 %",
+              "nota": "",
+              "fecha": "Oct 28 2025 02:37:00:000PM",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "32 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "40 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Practica calificada/laboratorios"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajos de investigacion/expos"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "5 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "2",
+      "tiene_notas": true
+    },
+    {
+      "nombre_curso": "SOLUCIONES MÓVILES I",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "25 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "12",
+              "fecha": "Sep 15 2025 07:50:00:000PM",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "20 %",
+              "nota": "13",
+              "fecha": "Sep 25 2025 08:37:00:000AM",
+              "descripcion": "Practica de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "8",
+              "fecha": "Sep 25 2025 08:36:00:000AM",
+              "descripcion": "Practica calificada"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "40 %",
+              "nota": "12",
+              "fecha": "Sep 29 2025 09:12:00:000AM",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "35 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "20 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Practica de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Practica calificada"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "40 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "40 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "20 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Practica de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Practica calificada"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "40 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "3",
+      "tiene_notas": true
+    },
+    {
+      "nombre_curso": "ESTADÍSTICA INFERENCIAL Y ANÁLISIS DE DATOS",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "30 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "12",
+              "fecha": "Sep 20 2025 08:38:00:000PM",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "13",
+              "fecha": "Sep 21 2025 12:46:00:000AM",
+              "descripcion": "Práctica calificada"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "13",
+              "fecha": "Oct 05 2025 09:59:00:000PM",
+              "descripcion": "Trabajo encargado"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "35 %",
+              "nota": "11",
+              "fecha": "Oct 05 2025 09:10:00:000PM",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "35 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "6",
+              "fecha": "Oct 21 2025 05:51:00:000PM",
+              "descripcion": "Práctica calificada"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajo encargado"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "35 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "35 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "10 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Práctica calificada"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "30 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajo encargado"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "35 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "4",
+      "tiene_notas": true
+    },
+    {
+      "nombre_curso": "INTELIGENCIA DE NEGOCIOS",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "30 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "20 %",
+              "nota": "11",
+              "fecha": "Oct 17 2025 04:56:00:000AM",
+              "descripcion": "Examen teorico"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "15 %",
+              "nota": "0",
+              "fecha": "Oct 17 2025 06:48:00:000AM",
+              "descripcion": "Sesiones de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "15 %",
+              "nota": "10",
+              "fecha": "Oct 17 2025 04:41:00:000AM",
+              "descripcion": "Trabajos individuales"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "15 %",
+              "nota": "12",
+              "fecha": "Oct 17 2025 06:51:00:000AM",
+              "descripcion": "Trabajos grupales"
+            },
+            {
+              "criterio": "Evaluacion 05",
+              "peso_criterio": "30 %",
+              "nota": "10",
+              "fecha": "Oct 17 2025 05:09:00:000AM",
+              "descripcion": "Proyecto de curso"
+            },
+            {
+              "criterio": "Evaluacion 06",
+              "peso_criterio": "5 %",
+              "nota": "17.65",
+              "fecha": "Oct 17 2025 03:29:00:000AM",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "30 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen teorico"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Sesiones de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajos individuales"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "Oct 21 2025 08:41:00:000PM",
+              "descripcion": "Trabajos grupales"
+            },
+            {
+              "criterio": "Evaluacion 05",
+              "peso_criterio": "35 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Proyecto de curso"
+            },
+            {
+              "criterio": "Evaluacion 06",
+              "peso_criterio": "5 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "40 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen teorico"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Sesiones de laboratorio"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajos individuales"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "10 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Trabajos grupales"
+            },
+            {
+              "criterio": "Evaluacion 05",
+              "peso_criterio": "40 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Proyecto de curso"
+            },
+            {
+              "criterio": "Evaluacion 06",
+              "peso_criterio": "5 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            }
+          ],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "3",
+      "tiene_notas": true
+    },
+    {
+      "nombre_curso": "PLANEAMIENTO ESTRATÉGICO DE TI",
+      "unidades": [
+        {
+          "nombre": "Unidad I",
+          "peso_unidad": "25 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "15 %",
+              "nota": "14",
+              "fecha": "Sep 11 2025 06:09:00:000PM",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "5",
+              "fecha": "Sep 11 2025 06:19:00:000PM",
+              "descripcion": "Cognitivo"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "35 %",
+              "nota": "10",
+              "fecha": "Sep 11 2025 06:19:00:000PM",
+              "descripcion": "Procedimental"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "25 %",
+              "nota": "14",
+              "fecha": "Sep 11 2025 06:18:00:000PM",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad II",
+          "peso_unidad": "35 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "15 %",
+              "nota": "15",
+              "fecha": "Oct 22 2025 05:36:00:000PM",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "Oct 22 2025 06:00:00:000PM",
+              "descripcion": "Cognitivo"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "35 %",
+              "nota": "",
+              "fecha": "Oct 29 2025 04:51:00:000PM",
+              "descripcion": "Procedimental"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "Oct 29 2025 04:51:00:000PM",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        },
+        {
+          "nombre": "Unidad III",
+          "peso_unidad": "40 %",
+          "evaluaciones": [
+            {
+              "criterio": "Evaluacion 01",
+              "peso_criterio": "15 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Actitudinal"
+            },
+            {
+              "criterio": "Evaluacion 02",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Cognitivo"
+            },
+            {
+              "criterio": "Evaluacion 03",
+              "peso_criterio": "35 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Procedimental"
+            },
+            {
+              "criterio": "Evaluacion 04",
+              "peso_criterio": "25 %",
+              "nota": "",
+              "fecha": "",
+              "descripcion": "Examen de unidad"
+            }
+          ],
+          "promedio_unidad": null
+        }
+      ],
+      "promedio_final": "3",
+      "tiene_notas": true
+    }
+  ],
+  "total_cursos": 6
+}
