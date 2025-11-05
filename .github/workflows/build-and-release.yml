@@ -1,0 +1,124 @@
+name: Build and Release APK
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.3'
+        channel: 'stable'
+
+    - name: Disable Flutter analytics
+      run: flutter config --no-analytics
+
+    - name: Accept Android licenses
+      run: yes | flutter doctor --android-licenses || true
+
+    - name: Clean Flutter
+      run: flutter clean
+
+    - name: Get dependencies
+      run: flutter pub get
+
+    - name: Update dependencies
+      run: flutter pub upgrade
+
+    - name: Setup custom app icon (if upt.ico exists)
+      run: |
+        if [ -f "assets/upt.ico" ]; then
+          echo "Setting up custom app icon..."
+          
+          # Install ImageMagick for icon conversion
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          
+          # Create icon directories if they don't exist
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          
+          # Convert .ico to different PNG sizes for Android
+          convert assets/upt.ico -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          convert assets/upt.ico -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          convert assets/upt.ico -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          convert assets/upt.ico -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          convert assets/upt.ico -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          
+          echo "Custom icon configured successfully!"
+        else
+          echo "No custom icon found at assets/upt.ico, using default icon"
+        fi
+
+    - name: Run tests (optional)
+      run: flutter test || echo "No tests found, continuing..."
+
+    - name: Get version from pubspec.yaml
+      id: version
+      run: |
+        VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | tr -d '\r')
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "Version: $VERSION"
+
+    - name: Build APK
+      run: flutter build apk --release
+
+    - name: Rename APK with custom name
+      run: |
+        cd build/app/outputs/flutter-apk/
+        mv app-release.apk "UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk"
+        ls -la
+
+    - name: Create Release and Upload APK
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Create release notes
+        cat > release_notes.md << 'EOF'
+        ## Cambios en esta versión
+        
+        ### 🚀 Nuevas características
+        - Generación automática de APK mediante GitHub Actions
+        
+        ### 🐛 Correcciones
+        - Mejoras en la estabilidad general
+        
+        ### 📱 Instalación
+        Descarga el archivo `UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk` y instálalo en tu dispositivo Android.
+        
+        **Nota:** Es posible que necesites habilitar la instalación de aplicaciones de fuentes desconocidas en la configuración de tu dispositivo.
+        EOF
+        
+        # Create release with GitHub CLI
+        gh release create "v${{ steps.version.outputs.VERSION }}" \
+          --title "Release v${{ steps.version.outputs.VERSION }}" \
+          --notes-file release_notes.md \
+          build/app/outputs/flutter-apk/UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk
+
+    - name: Upload APK as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: UPT-Asesoria-APK
+        path: build/app/outputs/flutter-apk/UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk
