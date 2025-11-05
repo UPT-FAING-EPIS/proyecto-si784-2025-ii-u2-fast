@@ -13,9 +13,14 @@ jobs:
       contents: write
       packages: write
 
+    defaults:
+      run:
+        working-directory: upt_tutoria_app
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Setup Java
       uses: actions/setup-java@v4
@@ -75,12 +80,63 @@ jobs:
     - name: Run tests (optional)
       run: flutter test || echo "No tests found, continuing..."
 
-    - name: Get version from pubspec.yaml
+    # 1. Lee la versión base de pubspec.yaml (ej: 1.0.0)
+    # 2. Busca en GitHub la tag más reciente que empiece con "v1.0." (ej: v1.0.0, v1.0.1, etc.)
+    # 3. Si la versión del pubspec es MÁS NUEVA que la última tag (ej: subiste pubspec a 1.1.0), usa la del pubspec.
+    # 4. Si la última tag es IGUAL o MAYOR (ej: v1.0.2), incrementa el último número (ej: v1.0.3)
+    - name: Determine Next Version
       id: version
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | tr -d '\r')
-        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-        echo "Version: $VERSION"
+        # 1. Obtener la versión base de pubspec.yaml (ej: 1.0.0)
+        BASE_VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1 | tr -d '\r')
+        echo "Pubspec base version: $BASE_VERSION"
+        
+        # 2. Obtener el Major.Minor (ej: 1.0)
+        MAJOR_MINOR=$(echo "$BASE_VERSION" | cut -d '.' -f 1,2)
+        
+        # 3. Buscar la última tag existente para este Major.Minor (ej: v1.0.0, v1.0.1...)
+        #    Usamos 'gh tag list' y ordenamos por versión de forma descendente
+        LATEST_TAG=$(gh tag list "v${MAJOR_MINOR}.*" --sort="-version:refname" | head -n 1)
+        
+        if [ -z "$LATEST_TAG" ]; then
+          # No existe ninguna tag para "v1.0.*". Usamos la versión base del pubspec.
+          FINAL_VERSION=$BASE_VERSION
+          echo "No existing tags found for v${MAJOR_MINOR}.*. Using base version: $FINAL_VERSION"
+        else
+          # Sí existen tags. Comparamos la versión base con la última tag.
+          LATEST_TAG_VERSION=$(echo "$LATEST_TAG" | cut -c 2-) # Quita la 'v' (ej: 1.0.1)
+          
+          # Comparamos cuál es mayor: la del pubspec o la última tag
+          # (usamos 'sort -V' que entiende de números de versión)
+          HIGHEST_VERSION=$( (echo "$BASE_VERSION"; echo "$LATEST_TAG_VERSION") | sort -V | tail -n 1)
+          
+          if [ "$HIGHEST_VERSION" == "$LATEST_TAG_VERSION" ]; then
+            # La última tag (ej: 1.0.2) es >= que la del pubspec (ej: 1.0.0)
+            # Debemos incrementar la última tag.
+            LATEST_PATCH=$(echo "$LATEST_TAG_VERSION" | cut -d '.' -f 3)
+            NEXT_PATCH=$((LATEST_PATCH + 1))
+            FINAL_VERSION="${MAJOR_MINOR}.${NEXT_PATCH}"
+            echo "Latest tag ($LATEST_TAG) is >= pubspec ($BASE_VERSION). Incrementing tag to: $FINAL_VERSION"
+          else
+            # La versión del pubspec (ej: 1.1.0) es más nueva que la última tag (ej: v1.0.2)
+            # Usamos la versión del pubspec.
+            FINAL_VERSION=$BASE_VERSION
+            echo "Pubspec version ($BASE_VERSION) is newer than latest tag ($LATEST_TAG). Using pubspec version."
+          fi
+        fi
+        
+        echo "Final determined version: $FINAL_VERSION"
+        echo "VERSION=$FINAL_VERSION" >> $GITHUB_OUTPUT
+        echo "TAG=v$FINAL_VERSION" >> $GITHUB_OUTPUT
+
+    # - name: Get version from pubspec.yaml
+    #   id: version
+    #   run: |
+    #     VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | tr -d '\r')
+    #     echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+    #     echo "Version: $VERSION"
 
     - name: Build APK
       run: flutter build apk --release
@@ -88,16 +144,24 @@ jobs:
     - name: Rename APK with custom name
       run: |
         cd build/app/outputs/flutter-apk/
-        mv app-release.apk "UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk"
+        mv app-release.apk "UPT-Tutoria-v${{ steps.version.outputs.VERSION }}.apk"
         ls -la
+
+    # - name: Rename APK with custom name
+    #   run: |
+    #     cd build/app/outputs/flutter-apk/
+    #     mv app-release.apk "UPT-Tutoria-v${{ steps.version.outputs.VERSION }}.apk"
+    #     ls -la
 
     - name: Create Release and Upload APK
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RELEASE_VERSION: ${{ steps.version.outputs.VERSION }}
+        RELEASE_TAG: ${{ steps.version.outputs.TAG }}
       run: |
         # Create release notes
-        cat > release_notes.md << 'EOF'
-        ## Cambios en esta versión
+        cat > release_notes.md << EOF
+        ## Cambios en esta versión (${RELEASE_VERSION})
         
         ### 🚀 Nuevas características
         - Generación automática de APK mediante GitHub Actions
@@ -106,19 +170,21 @@ jobs:
         - Mejoras en la estabilidad general
         
         ### 📱 Instalación
-        Descarga el archivo `UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk` y instálalo en tu dispositivo Android.
+        Descarga el archivo \`UPT-Tutoria-v${RELEASE_VERSION}.apk\` y instálalo en tu dispositivo Android.
         
         **Nota:** Es posible que necesites habilitar la instalación de aplicaciones de fuentes desconocidas en la configuración de tu dispositivo.
         EOF
         
         # Create release with GitHub CLI
-        gh release create "v${{ steps.version.outputs.VERSION }}" \
-          --title "Release v${{ steps.version.outputs.VERSION }}" \
+        # ### MODIFICADO ###
+        # Usamos las variables TAG y VERSION para crear la release
+        gh release create "${RELEASE_TAG}" \
+          --title "Release ${RELEASE_TAG}" \
           --notes-file release_notes.md \
-          build/app/outputs/flutter-apk/UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk
-
+          build/app/outputs/flutter-apk/UPT-Tutoria-v${RELEASE_VERSION}.apk
+    
     - name: Upload APK as Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: UPT-Asesoria-APK
-        path: build/app/outputs/flutter-apk/UPT-Asesoria-v${{ steps.version.outputs.VERSION }}.apk
+        name: UPT-Tutoria-APK
+        path: build/app/outputs/flutter-apk/UPT-Tutoria-v${{ steps.version.outputs.VERSION }}.apk
